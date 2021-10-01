@@ -18,6 +18,8 @@ def largest_3dig_prime_pali():
     primes_3dig=primes_under(999)
     N = len(primes_3dig)
     p1 = p2 = 0
+
+    #TODO: Why does this work in python but not c++? The 10901 number should be encountered before 99899
     for i in reversed(range(N-1)):
         p1 = primes_3dig[i]
         for j in reversed(range(i+1,N)):
