@@ -6,16 +6,10 @@ std::vector<size_t> primefacs(size_t N) {
 
 	size_t d = 2;
 	while (d*d < N) {
-		size_t cnt = 0;
 		while (N % d == 0) {
-			cnt++;
+			facs.emplace_back(d);
 			N /= d;
 		}
-		facs.reserve(cnt);
-		for (size_t i = 0; i < cnt; i++) {
-			facs.push_back(d);
-		}
-
 		d++;
 	}
 	if (N > 1) {
