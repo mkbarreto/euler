@@ -2,7 +2,6 @@
 #TODO: rewrite with a single prime solve at the beginning
 #       IDEA: Make a factorizor class and solve primes on init?
 def primefacs(n):
-    print(n)
     primfac = []
     d = 2
     while d*d <= n:
@@ -39,5 +38,5 @@ def smallestcomp(N):
 
     return smallestcomp_
 
-N = 11
-print("The natural number evenly divisible byy all numbers between 1 and " + str(N) + " is " + str(smallestcomp(N)))
+N = 20
+print("The natural number evenly divisible by all numbers between 1 and " + str(N) + " is " + str(smallestcomp(N)))
