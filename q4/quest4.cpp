@@ -41,19 +41,20 @@ bool is_palindromic(size_t N) {
 int main() {
 	const auto primes_3dig = primes_under(999);
 
-	size_t p1, p2, biggest = 0;
+	size_t p1 = 0, p2 = 0;
 	auto N = primes_3dig.size();
 	for(size_t i = 0; i < N - 1; i++) {
+palindrome_found:
+		//TODO: add logic below skipping checks on smaller products
 		for (size_t j = i+1; j < N; j++) {
 			const auto tmp = primes_3dig[i]*primes_3dig[j];
-			if (is_palindromic(tmp) and tmp > biggest) {
-				biggest = tmp;
+			if (is_palindromic(tmp) and tmp > p1*p2) {
 				p1 = primes_3dig[i];
 				p2 = primes_3dig[j];
+				goto palindrome_found;
 			}
 		}
 	}
 
-palindrome_found:
-	printf("The largest palindromic product of two 3-digit primes is %zu, the product of %zu and %zu\n", biggest, p1, p2);
+	printf("The largest palindromic product of two 3-digit primes is %zu, the product of %zu and %zu\n", p1*p2, p1, p2);
 }
